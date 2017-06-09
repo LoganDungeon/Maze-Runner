@@ -1,0 +1,84 @@
+Labyrinth Game
+- prozedural generated Level
+- random rooms?
+- Chests with Items
+
+First:
+- generate Map
+- depth first search
+- generate Labyrinth walls
+
+
+important Notes: 
+- two tiles "share" the touching wall - obsolete
+- now tiles can be either wall or Floor -> later on i may add more types
+
+
+
+idea of the algorithm:
+- field of tiles with odd number of length
+- Algorithm starts:
+	- startPoint = randomTile; 
+	- currentTile = startTile;
+	- nextTile;
+	- Stack visited;
+	- neighbours[];
+	- List<Tile> notVisitedNeighbours
+	- while(startPoint != visited && currentTile != startTile){
+		neighbours[] = GetNeighbours(currentTile);
+		notVisitedNeighbours = neighbours[bla].visited != true && !null;
+		if(notVisitedneighbours != empty){
+			visited.Push(currentTile);
+			nextTile = Random(notVisitedNeighbours);
+			currentTile.visited = true;
+		}
+		else{
+			nextTile = visited.Pop();
+		}
+		currentTile = nextTile;
+	}
+- MidTile is calculated trough:
+	1-1 -> 1-3
+
+- I have to dissable GameObjects, which are not in a certain range of the Player -> less Lag
+- Manhattan Distance:
+- maybe 15 Meters?
+- Player.x = GO.x, then distance = 15
+- renderX = Abs(Map.x - Player.x)
+- renderY = Abs(Map.y - Player.y)
+- Range = renderX + renderY
+- if range < 15 then render the Object (enable it)
+
+- Rooms:
+	- Number of rooms: floor(3sqrt(H*W))
+	- contains a rectangle with odd sides of tiles
+	- minimum Height and Width of a room is 3
+	- maximum Height and Width of a room is (for now just floor(4sqrt(H or W))) (if %2==0, then add 1)
+
+Create meshes for the tiles:
+	- if the tile is a floor, then create a Floor and a Ceiling mesh
+	- when the tile is a wall, create a wall mesh:
+		- Method takes Arguments:
+			(Position,
+			NTile(bool, true if there is a wall)
+			ETile,
+			STile,
+			WTile)
+
+Inventory System:
+	- Inventories are Lists, which the Player can go trough with Arrow Up and Down
+	- They can move Items from one inventory to another. (eg. Chest to Player)
+	- Move the selected item(s) with one button or all of the (chest)items with another button at once
+	- Selected Item will try to move into the other inventory, 
+	  if there are no places left, it will stay and an error message or something like that will appear
+	- 
+	- Items Ideas:
+		- Armor Pieces:
+			- Helmet
+			- Chestplate
+			- Shoulders
+			- Legprotection
+			- Boots
+		- Jewellery:
+			- Amulett
+			- Ring
