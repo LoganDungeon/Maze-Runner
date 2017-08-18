@@ -14,8 +14,19 @@ important Notes:
 - now tiles can be either wall or Floor -> later on i may add more types
 
 
+Ideas for simple World Creation:
+- When the game starts, the WorldController will either generate a new World or load a World from savefile.
+- first step would be t create a completely empty world ( a World with empty Tiles and no Rooms ) just to have a World.
+- Constructor of the world is over -> so i can accses Tiles and modify them, which was the problem in the last approach
+- after empty World creation the actual generation/loading will occur. 
+- Case New World:
+	- World will be overwritten with new Tiles
+	- MazeGenerator can run over to generate Maze and Rooms etc.
+_ Case Loading:
+	-
 
-idea of the algorithm:
+
+idea of the Maze Generation algorithm:
 - field of tiles with odd number of length
 - Algorithm starts:
 	- startPoint = randomTile; 

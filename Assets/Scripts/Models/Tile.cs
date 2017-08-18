@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour {
+public class Tile
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int X
+    {
+        get;
+        protected set;
+    }
+
+    public int Z
+    {
+        get;
+        protected set;
+    }
+
+
 }
